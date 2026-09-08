@@ -109,35 +109,7 @@
             display: flex;
         }
 
-        /* ===== BUTTON PULSE RING ===== */
-        .btn-pulse {
-            position: relative;
-            transition: all 0.25s ease;
-        }
-        .btn-pulse::after {
-            content: '';
-            position: absolute;
-            inset: -5px;
-            border-radius: 9999px;
-            background: inherit;
-            filter: blur(8px);
-            opacity: 0.5;
-            z-index: -1;
-            animation: pulse-ring 2.4s ease-in-out infinite;
-        }
-        @keyframes pulse-ring {
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 0.5;
-            }
-            50% {
-                transform: scale(1.08);
-                opacity: 0.15;
-            }
-        }
-
-        /* ===== CUSTOM BUTTON STYLES ===== */
+        /* ===== CTA BUTTONS ===== */
 
         /* JOIN NOW — bold blue‑to‑purple gradient with white text & strong shadow */
         .btn-join {
@@ -148,6 +120,7 @@
             box-shadow: 0 8px 28px rgba(37, 99, 235, 0.45), 0 4px 12px rgba(124, 58, 237, 0.25);
             border: 2px solid rgba(255, 255, 255, 0.15);
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+            transition: all 0.25s ease;
         }
         .btn-join:hover {
             transform: translateY(-3px) scale(1.02);
@@ -164,6 +137,7 @@
             box-shadow: 0 8px 28px rgba(220, 38, 38, 0.45), 0 4px 12px rgba(185, 28, 28, 0.25);
             border: 2px solid rgba(255, 255, 255, 0.15);
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+            transition: all 0.25s ease;
         }
         .btn-subscribe:hover {
             transform: translateY(-3px) scale(1.02);
@@ -189,14 +163,6 @@
             width: 1.4rem;
             height: 1.4rem;
             flex-shrink: 0;
-        }
-
-        /* YouTube icon — brand colors, crisp */
-        .youtube-icon .bg-shape {
-            fill: #FF0000;
-        }
-        .youtube-icon .play-triangle {
-            fill: #FFFFFF;
         }
     </style>
 </head>
@@ -249,7 +215,7 @@
 
                     <!-- 1. JOIN NOW — Telegram -->
                     <a id="join" href="https://t.me/+Bwbny3JO1SJiMjM9" target="_blank"
-                    class="btn-pulse btn-join w-full px-6 py-3.5 rounded-full flex items-center justify-center gap-3 transition duration-300">
+                    class="btn-join w-full px-6 py-3.5 rounded-full flex items-center justify-center gap-3">
                     <svg class="btn-icon" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 11.944 0zm4.962 9.617l-1.54 7.27c-.11.52-.4.65-.81.4l-2.34-1.72-1.13.99c-.12.12-.23.22-.47.22l.17-2.39 4.37-4.18c.19-.17-.04-.27-.29-.11l-5.39 3.4-2.07-.65c-.45-.14-.46-.5.1-.71l8.58-3.31c.36-.14.67.04.59.48z"/>
                     </svg>
@@ -257,14 +223,12 @@
                     <span class="btn-badge">FREE</span>
                 </a>
 
-                <!-- 2. SUBSCRIBE NOW — YouTube (icon with brand colors) -->
+                <!-- 2. SUBSCRIBE NOW — YouTube (single-color icon) -->
                 <a id="subscribe" href="https://youtube.com/@kdexupdate" target="_blank"
-                class="btn-pulse btn-subscribe w-full px-6 py-3.5 rounded-full flex items-center justify-center gap-3 transition duration-300">
-                <svg class="btn-icon youtube-icon" viewBox="0 0 24 24">
-                    <!-- YouTube red background shape -->
-                    <path class="bg-shape" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.016 3.016 0 0 0 .502 6.186 31.88 31.88 0 0 0 0 12.005c0 1.927.5 5.818.502 5.819a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.016 3.016 0 0 0 2.122-2.136C24 17.823 24 12.005 24 12.005s.498-3.891 0-5.819z"/>
-                    <!-- White play triangle -->
-                    <path class="play-triangle" d="M9.75 15.023l6.22-3.772-6.22-3.751z"/>
+                class="btn-subscribe w-full px-6 py-3.5 rounded-full flex items-center justify-center gap-3">
+                <svg class="btn-icon" fill="currentColor" fill-rule="evenodd" viewBox="0 0 24 24">
+                    <!-- single-color YouTube mark: outer shape with the play triangle cut out -->
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.016 3.016 0 0 0 .502 6.186 31.88 31.88 0 0 0 0 12.005c0 1.927.5 5.818.502 5.819a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.016 3.016 0 0 0 2.122-2.136C24 17.823 24 12.005 24 12.005s.498-3.891 0-5.819zM9.75 15.023V8.251l6.22 3.772z"/>
                 </svg>
                 <span class="text-base md:text-lg tracking-wide">SUBSCRIBE NOW</span>
                 <span class="btn-badge">YouTube</span>
