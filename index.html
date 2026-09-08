@@ -464,16 +464,13 @@
         });
 
         // ============================================================
-        //  FACEBOOK PIXEL — separate events per button
-        //  Telegram → Purchase
-        //  YouTube  → Lead  (standard event for subscription)
+        //  FACEBOOK PIXEL — only Telegram JOIN NOW fires Purchase.
+        //  YouTube SUBSCRIBE NOW just navigates, no pixel event.
         // ============================================================
 
         const joinBtn = document.getElementById('join');
-        const subscribeBtn = document.getElementById('subscribe');
 
-        // Telegram: Purchase
-        joinBtn.addEventListener('click', (e) => {
+        joinBtn.addEventListener('click', () => {
             // Don't prevent default — let navigation happen
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'Purchase', {
@@ -488,25 +485,7 @@
             }
         });
 
-        // YouTube: Lead (standard event for subscription / sign-up)
-        subscribeBtn.addEventListener('click', (e) => {
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'Lead', {
-                    content_name: 'YouTube Channel Subscribe',
-                    content_category: 'Social',
-                    content_type: 'channel',
-                    content_id: 'kdexupdate'
-                });
-                console.log('[FB Pixel] Lead tracked for YouTube SUBSCRIBE NOW');
-            } else {
-                console.warn('[FB Pixel] fbq not loaded — YouTube event skipped');
-            }
-        });
-
-        // Also track the "Join Telegram" link in the header & mobile nav if needed
-        // But those are separate links — we only track the main CTA buttons
-
-        console.log('[KDEX] Page ready — both CTA events are configured.');
+        console.log('[KDEX] Page ready — Purchase event configured for Telegram only.');
     });
 </script>
 
